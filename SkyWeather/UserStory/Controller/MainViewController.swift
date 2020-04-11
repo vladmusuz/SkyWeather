@@ -64,6 +64,7 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
         myView.weatherStateImage = MainModel.weatherStateImage
         myView.backgroundColor   = MainModel.mainBackImage
         view                     = myView
+        myView.descriptionText   = MainModel.descrition
     }
     
     //MARK: - Private Methods
@@ -161,8 +162,6 @@ extension MainViewController {
                     
                     model.weather.forEach({
                         WeatherState.weatherStateDefine(weatherState: $0.main)
-                        MainModel.descrition = $0.main
-                        
                     })
                     
                     self.setMainValues()

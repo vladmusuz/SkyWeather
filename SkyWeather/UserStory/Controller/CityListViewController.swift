@@ -127,9 +127,6 @@ extension CityViewController {
                     
                     model.weather.forEach({
                         WeatherState.weatherStateDefine(weatherState: $0.main)
-                        MainModel.descrition = $0.main
-                        
-                        print($0.main)
                     })
                 }
             }

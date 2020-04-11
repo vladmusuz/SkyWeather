@@ -23,3 +23,9 @@ extension UIView {
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
 }
+
+extension UIColor {
+    static let opacityLightGray = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
+    static let opacityMiddleGray = UIColor(red: 0, green: 0, blue: 0, alpha: 0.35)
+    static let opacityDarkGray = UIColor(red: 0, green: 0, blue: 0, alpha: 0.45)
+}

@@ -22,3 +22,9 @@ extension UILabel {
         return label
     }
 }
+
+extension UIFont {
+    static let customBigSize = UIFont.boldSystemFont(ofSize: 45)
+    static let customSmallSize = UIFont.boldSystemFont(ofSize: 25)
+    static let customVerySmallSize = UIFont.systemFont(ofSize: 16)
+}

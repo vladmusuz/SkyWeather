@@ -21,7 +21,7 @@ class MainDefaultView: UIView {
     
     private let newCityButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.backgroundColor = UIColor.opacityBlack
+        btn.backgroundColor = UIColor.opacityDarkGray
         btn.setTitle("Select City", for: .normal)
         return btn
     }()

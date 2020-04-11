@@ -29,12 +29,3 @@ extension UIImage {
         return UIImage(named: name) ?? UIImage()
     }
 }
-
-extension UIColor {
-    static let opacityBlack = UIColor(red: 0, green: 0, blue: 0, alpha: 0.45)
-}
-
-extension UIFont {
-    static let customBigSize = UIFont.boldSystemFont(ofSize: 45)
-    static let customSmallSize = UIFont.boldSystemFont(ofSize: 25)
-}

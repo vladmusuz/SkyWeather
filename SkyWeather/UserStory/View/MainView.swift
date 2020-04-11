@@ -101,6 +101,14 @@ class MainView: UIView {
             $0.textColor     = .white
             $0.textAlignment = .center
             $0.font          = UIFont.customBigSize
+            
+            if $0.isEqual(descriptionTextLabel) {
+                
+                $0.font = UIFont.customVerySmallSize
+                $0.numberOfLines = 3
+                $0.backgroundColor = UIColor.opacityLightGray
+                $0.layer.cornerRadius = 16
+            }
         })
         [
             currentLocationButton,
@@ -108,7 +116,7 @@ class MainView: UIView {
         ].forEach({
             $0.setTitleColor(.white, for: .normal)
             
-            $0.backgroundColor    = UIColor.opacityBlack
+            $0.backgroundColor    = UIColor.opacityMiddleGray
             $0.layer.cornerRadius = 8
         })
         

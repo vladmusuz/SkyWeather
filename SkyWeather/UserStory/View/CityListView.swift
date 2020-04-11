@@ -41,7 +41,7 @@ class CityListView: UIView {
             tableView
         ].forEach({
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.backgroundColor = UIColor.opacityBlack
+            $0.backgroundColor = UIColor.opacityMiddleGray
             addSubview($0)
         })
         setupConst()
