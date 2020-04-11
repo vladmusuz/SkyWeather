@@ -16,17 +16,15 @@ struct MainModel {
     static var temp              = String()
     static var descrition        = String()
     static var weatherStateImage = UIImage()
+    static var mainBackImage     = UIColor(patternImage: UIImage())
     
-    static let defaultCityName    = "City: --:--"
-    static let defaultTemp        = "--:--"
-    static let defaultDescription = " Description: --:--"
+    static var defaultDescText = Description.text
     
     static var searchCityArray  = [String]()
     static var isSearching      = false
     
-    static var searchingCity = String()
-    
     static var isLocationEnable = false
+    static var isCitySelected   = false
 }
 
 struct Cells {
@@ -35,4 +33,8 @@ struct Cells {
 
 struct Capital: Codable {
     var capital: String
+}
+
+struct Description {
+    static let text = "Hi, to be able to track your weather details in your Location, please enable the Location Service in Settings. In other case you can Select any City by clicking 'Select' button"
 }

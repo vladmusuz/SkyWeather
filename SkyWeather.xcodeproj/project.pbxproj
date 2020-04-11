@@ -10,7 +10,8 @@
 		EB95E8B32441DED700EFB887 /* CityListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95E8B22441DED700EFB887 /* CityListTableViewCell.swift */; };
 		EB95E8B52441E1A000EFB887 /* CityNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95E8B42441E1A000EFB887 /* CityNetworkService.swift */; };
 		EB95E8B72441E1D900EFB887 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95E8B62441E1D900EFB887 /* UIImageHelper.swift */; };
-		EB95E8B92442033900EFB887 /* MainDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95E8B82442033900EFB887 /* MainDefaultView.swift */; };
+		EB95E8BB24421C1500EFB887 /* UILabel+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95E8BA24421C1500EFB887 /* UILabel+Shadow.swift */; };
+		EB95E8BD244220B500EFB887 /* MainDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95E8BC244220B500EFB887 /* MainDefaultView.swift */; };
 		EBF69A25244103BB00246305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A24244103BB00246305 /* AppDelegate.swift */; };
 		EBF69A2C244103BB00246305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBF69A2A244103BB00246305 /* Main.storyboard */; };
 		EBF69A2E244103BE00246305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF69A2D244103BE00246305 /* Assets.xcassets */; };
@@ -31,7 +32,8 @@
 		EB95E8B22441DED700EFB887 /* CityListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListTableViewCell.swift; sourceTree = "<group>"; };
 		EB95E8B42441E1A000EFB887 /* CityNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNetworkService.swift; sourceTree = "<group>"; };
 		EB95E8B62441E1D900EFB887 /* UIImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
-		EB95E8B82442033900EFB887 /* MainDefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDefaultView.swift; sourceTree = "<group>"; };
+		EB95E8BA24421C1500EFB887 /* UILabel+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Shadow.swift"; sourceTree = "<group>"; };
+		EB95E8BC244220B500EFB887 /* MainDefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDefaultView.swift; sourceTree = "<group>"; };
 		EBF69A21244103BB00246305 /* SkyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF69A24244103BB00246305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBF69A2B244103BB00246305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				EBF69A5824411D9900246305 /* UIView+Shadow.swift */,
+				EB95E8BA24421C1500EFB887 /* UILabel+Shadow.swift */,
 				EBF69A5E24412F6B00246305 /* AlertHelper.swift */,
 				EB95E8B62441E1D900EFB887 /* UIImageHelper.swift */,
 			);
@@ -169,7 +172,7 @@
 			children = (
 				EBF69A4C244107A900246305 /* MainView.swift */,
 				EBF69A6224414C9400246305 /* CityListView.swift */,
-				EB95E8B82442033900EFB887 /* MainDefaultView.swift */,
+				EB95E8BC244220B500EFB887 /* MainDefaultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,13 +254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB95E8BB24421C1500EFB887 /* UILabel+Shadow.swift in Sources */,
 				EBF69A5F24412F6B00246305 /* AlertHelper.swift in Sources */,
 				EBF69A4D244107A900246305 /* MainView.swift in Sources */,
 				EBF69A6324414C9400246305 /* CityListView.swift in Sources */,
 				EBF69A25244103BB00246305 /* AppDelegate.swift in Sources */,
 				EBF69A5924411D9900246305 /* UIView+Shadow.swift in Sources */,
-				EB95E8B92442033900EFB887 /* MainDefaultView.swift in Sources */,
 				EBF69A45244105F000246305 /* WeatherModel.swift in Sources */,
+				EB95E8BD244220B500EFB887 /* MainDefaultView.swift in Sources */,
 				EBF69A6124414C8A00246305 /* CityListViewController.swift in Sources */,
 				EB95E8B72441E1D900EFB887 /* UIImageHelper.swift in Sources */,
 				EBF69A43244105E800246305 /* WeatherNetworkService.swift in Sources */,

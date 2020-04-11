@@ -62,7 +62,7 @@ class MainView: UIView {
     
     private let newCityButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("New City", for: .normal)
+        btn.setTitle("Select City", for: .normal)
         return btn
     }()
     
@@ -80,7 +80,6 @@ class MainView: UIView {
     //MARK: - Methods
     
     private func setupView() {
-        backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "backImg4"))
         [
             cityNameLabel,
             weatherStateImageView,
@@ -97,16 +96,19 @@ class MainView: UIView {
             tempLabel,
             descriptionTextLabel
         ].forEach({
+            $0.textDropShadow()
+            
             $0.textColor     = .white
             $0.textAlignment = .center
-            $0.font          = UIFont.boldSystemFont(ofSize: 35)
+            $0.font          = UIFont.customBigSize
         })
         [
             currentLocationButton,
             newCityButton
         ].forEach({
             $0.setTitleColor(.white, for: .normal)
-            $0.backgroundColor    = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+            
+            $0.backgroundColor    = UIColor.opacityBlack
             $0.layer.cornerRadius = 8
         })
         

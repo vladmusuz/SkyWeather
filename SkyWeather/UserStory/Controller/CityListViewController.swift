@@ -84,10 +84,10 @@ extension CityViewController: UITableViewDelegate {
             alert(withTitle: "Warning", message: "Sorry, this city data is not available", andStyle: .alert)
             
         } else {
-            MainModel.searchingCity = selectedCity
-            MainModel.cityName      = selectedCity
-            myView.searchBar.text   = ""
-            MainModel.isSearching   = false
+            MainModel.cityName       = selectedCity
+            myView.searchBar.text    = ""
+            MainModel.isSearching    = false
+            MainModel.isCitySelected = true
             
             getWeatherData()
             
@@ -131,14 +131,19 @@ extension CityViewController {
                         
                         if $0.main == "Clouds" {
                             MainModel.weatherStateImage = UIImage.MyCityBackImage.clouds
+                            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backCloud)
                         } else if $0.main == "Clear" {
                             MainModel.weatherStateImage = UIImage.MyCityBackImage.clear
+                            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backClear)
                         } else if $0.main == "Rain" {
                             MainModel.weatherStateImage = UIImage.MyCityBackImage.rain
+                            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backRain)
                         } else if $0.main == "Snow" {
                             MainModel.weatherStateImage = UIImage.MyCityBackImage.snow
-                        } else if $0.main == "Mist", $0.main == "Haze" {
+                            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backSnow)
+                        } else if $0.main == "Mist" || $0.main == "Haze" {
                             MainModel.weatherStateImage = UIImage.MyCityBackImage.mist
+                            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backMist)
                         }
                         print($0.main)
                         MainModel.descrition = $0.main

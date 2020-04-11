@@ -35,13 +35,13 @@ class CityListView: UIView {
     //MARK: - Methods
     
     private func setupView() {
-        backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "backImg6"))
+        backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "backMist"))
         [
             searchBar,
             tableView
         ].forEach({
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+            $0.backgroundColor = UIColor.opacityBlack
             addSubview($0)
         })
         setupConst()

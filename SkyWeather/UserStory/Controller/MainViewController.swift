@@ -19,8 +19,9 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
     
     //MARK: - Properties
     
-    internal let myView = MainView()
-    var locationManager = CLLocationManager()
+    private let myView        = MainView()
+    private let myDefaultView = MainDefaultView()
+    var locationManager       = CLLocationManager()
     
     //MARK: - Main
     override func viewDidLoad() {
@@ -32,7 +33,8 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
     }
     
     override func loadView() {
-        view = myView
+        view = MainModel.isCitySelected ? myView : myDefaultView
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,6 +57,8 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
         myView.cityName          = MainModel.cityName
         myView.temp              = "\(MainModel.temp)ºC"
         myView.weatherStateImage = MainModel.weatherStateImage
+        myView.backgroundColor   = MainModel.mainBackImage
+        view                     = myView
     }
     
     //MARK: - Private Methods
@@ -63,6 +67,7 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
         locationManager                 = CLLocationManager()
         locationManager.delegate        = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
     }
@@ -75,7 +80,8 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
         self.navigationController?.view.backgroundColor        = .clear
         self.navigationController?.navigationBar.tintColor     = .white
         
-        myView.delegate = self
+        myView.delegate        = self
+        myDefaultView.delegate = self
     }
 }
 
@@ -83,6 +89,7 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
 
 extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
