@@ -15,8 +15,6 @@ class CityListView: UIView {
     let searchBar: UISearchBar = {
        let sb = UISearchBar()
         sb.barTintColor = .white
-        let textFieldInsideSearchBar = sb.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = .white
         return sb
     }()
     

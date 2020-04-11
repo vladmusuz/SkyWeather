@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 import CoreLocation
 
 protocol MainViewControllerDelegate: class {
@@ -16,22 +17,28 @@ protocol MainViewControllerDelegate: class {
 
 class MainViewController: UIViewController, MainViewControllerDelegate {
     
-    
     //MARK: - Properties
     
     internal let myView = MainView()
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
     
     //MARK: - Main
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
-        getWeatherData()
         getUserLocation()
+        getCity()
     }
     
     override func loadView() {
         view = myView
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !MainModel.cityName.isEmpty, !MainModel.temp.isEmpty {
+            setMainValues()
+        }
     }
     
     //MARK: - Methods
@@ -44,19 +51,20 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
         
     }
     
+    func setMainValues() {
+        myView.cityName          = MainModel.cityName
+        myView.temp              = "\(MainModel.temp)ºC"
+        myView.weatherStateImage = MainModel.weatherStateImage
+    }
+    
     //MARK: - Private Methods
     
     private func getUserLocation() {
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
-
-        if CLLocationManager.locationServicesEnabled() {
-            
-            locationManager.delegate        = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            
-            locationManager.startUpdatingLocation()
-        }
+        locationManager                 = CLLocationManager()
+        locationManager.delegate        = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     private func setupView() {
@@ -69,38 +77,39 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
         
         myView.delegate = self
     }
-    
-    
-}
-
-//MARK: - Get weather data
-
-extension MainViewController {
-    
-    private func getWeatherData() {
-        WeatherNetworkService.getWeatherData { (result) in
-            DispatchQueue.main.async {
-                
-                switch result {
-                case .failure(let error): print("error while getting data \(error)")
-                    
-                case .success(let model):
-                    MainModel.temp = Int(model.main.temp)
-                    model.weather.forEach({
-                        MainModel.descrition = $0.main
-                    })
-                }
-            }
-        }
-    }
 }
 
 //MARK: - CLLocationManagerDelegate
 
 extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
-        MainModel.isLocationEnable = true
+    }
+}
+
+//MARK: - Get City Data
+
+extension MainViewController {
+    
+    fileprivate func getCity() {
+        
+        CityNetworkSevice.getCity { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error): print("\(error) in getCity()")
+                    
+                case .success(let cities):
+                    cities.forEach({
+                        
+                        if $0.capital != "" {
+                            MainModel.cityArray.append($0.capital)
+                            let sortedCityList   = MainModel.cityArray.sorted()
+                            MainModel.cityArray = sortedCityList
+                        }
+                    })
+                }
+            }
+        }
     }
 }

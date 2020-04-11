@@ -18,8 +18,9 @@ class CityListTabelViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        backgroundColor = .darkGray
+        backgroundColor = .clear
         textLabel?.textColor = .white
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {

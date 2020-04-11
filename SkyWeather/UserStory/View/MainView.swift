@@ -27,6 +27,11 @@ class MainView: UIView {
         set { descriptionTextLabel.text = newValue}
     }
     
+    var weatherStateImage: UIImage? {
+        get { return weatherStateImageView.image}
+        set { weatherStateImageView.image = newValue }
+    }
+    
     //MARK: - Private Properties
     
     private let cityNameLabel: UILabel = {
@@ -44,9 +49,8 @@ class MainView: UIView {
         return label
     }()
     
-    private let weatherStateImage: UIImageView = {
+    private let weatherStateImageView: UIImageView = {
        let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "cloudState")
         return iv
     }()
     
@@ -79,14 +83,13 @@ class MainView: UIView {
         backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "backImg4"))
         [
             cityNameLabel,
-            weatherStateImage,
+            weatherStateImageView,
             tempLabel,
             descriptionTextLabel,
             currentLocationButton,
             newCityButton
         ].forEach({
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
             addSubview($0)
         })
         [
@@ -94,15 +97,16 @@ class MainView: UIView {
             tempLabel,
             descriptionTextLabel
         ].forEach({
-            $0.textColor = .white
+            $0.textColor     = .white
             $0.textAlignment = .center
-            $0.font = UIFont.systemFont(ofSize: 25)
+            $0.font          = UIFont.boldSystemFont(ofSize: 35)
         })
         [
             currentLocationButton,
             newCityButton
         ].forEach({
             $0.setTitleColor(.white, for: .normal)
+            $0.backgroundColor    = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
             $0.layer.cornerRadius = 8
         })
         
@@ -114,12 +118,12 @@ class MainView: UIView {
     
     private func setupConst() {
         let const = [
-            weatherStateImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            weatherStateImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 70),
-            weatherStateImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.55),
-            weatherStateImage.heightAnchor.constraint(equalTo: weatherStateImage.widthAnchor),
+            weatherStateImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            weatherStateImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 70),
+            weatherStateImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.55),
+            weatherStateImageView.heightAnchor.constraint(equalTo: weatherStateImageView.widthAnchor),
             
-            cityNameLabel.topAnchor.constraint(equalTo: weatherStateImage.bottomAnchor, constant: 20),
+            cityNameLabel.topAnchor.constraint(equalTo: weatherStateImageView.bottomAnchor, constant: 20),
             cityNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             cityNameLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),
             cityNameLabel.heightAnchor.constraint(equalToConstant: 70),

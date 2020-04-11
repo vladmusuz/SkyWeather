@@ -13,7 +13,8 @@ struct WeatherNetworkService {
     static func getWeatherData(completion: @escaping (Result<Model, Error>) -> Void) {
         
         let city = (MainModel.searchingCity as NSString).replacingOccurrences(of: " ", with: "%20")
-        guard let citiesUrl = URL(string: "https://samples.openweathermap.org/data/2.5/weather?q=\(city)&appid=d32afaac5ea627ea1d2634659bbbc17e") else {fatalError()}
+        let source = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=d32afaac5ea627ea1d2634659bbbc17e"
+        guard let citiesUrl = URL(string: source) else {fatalError()}
         
         URLSession.shared.dataTask(with: citiesUrl) { (data, response, error) in
             guard let data = data, error == nil else {return}

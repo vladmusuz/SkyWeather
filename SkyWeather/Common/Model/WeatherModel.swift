@@ -13,6 +13,7 @@ import Foundation
 struct Model: Codable {
     let weather: [Weather]
     let main: Main
+    let name: String
 }
 struct Weather: Codable {
     let main: String
@@ -21,13 +22,5 @@ struct Weather: Codable {
 // MARK: - Main
 struct Main: Codable {
     let temp: Double
-    let pressure: Int
-    let humidity: Int
-}
-
-// MARK: - Wind
-struct Wind: Codable {
-    let speed: Double
-    let deg: Double
 }
 
