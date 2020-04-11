@@ -3,27 +3,46 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB95E8B32441DED700EFB887 /* CityListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95E8B22441DED700EFB887 /* CityListTableViewCell.swift */; };
 		EBF69A25244103BB00246305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A24244103BB00246305 /* AppDelegate.swift */; };
-		EBF69A27244103BB00246305 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A26244103BB00246305 /* SceneDelegate.swift */; };
-		EBF69A29244103BB00246305 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A28244103BB00246305 /* ViewController.swift */; };
 		EBF69A2C244103BB00246305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBF69A2A244103BB00246305 /* Main.storyboard */; };
 		EBF69A2E244103BE00246305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF69A2D244103BE00246305 /* Assets.xcassets */; };
 		EBF69A31244103BE00246305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBF69A2F244103BE00246305 /* LaunchScreen.storyboard */; };
+		EBF69A3A244104B900246305 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EBF69A39244104B900246305 /* Lottie */; };
+		EBF69A43244105E800246305 /* WeatherNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A42244105E800246305 /* WeatherNetworkService.swift */; };
+		EBF69A45244105F000246305 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A44244105F000246305 /* WeatherModel.swift */; };
+		EBF69A472441060E00246305 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A462441060E00246305 /* CityModel.swift */; };
+		EBF69A4B244107A300246305 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A4A244107A300246305 /* MainViewController.swift */; };
+		EBF69A4D244107A900246305 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A4C244107A900246305 /* MainView.swift */; };
+		EBF69A5724411CC600246305 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A5624411CC600246305 /* MainModel.swift */; };
+		EBF69A5924411D9900246305 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A5824411D9900246305 /* UIView+Shadow.swift */; };
+		EBF69A5F24412F6B00246305 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A5E24412F6B00246305 /* AlertHelper.swift */; };
+		EBF69A6124414C8A00246305 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A6024414C8A00246305 /* CityListViewController.swift */; };
+		EBF69A6324414C9400246305 /* CityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69A6224414C9400246305 /* CityListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB95E8B22441DED700EFB887 /* CityListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListTableViewCell.swift; sourceTree = "<group>"; };
 		EBF69A21244103BB00246305 /* SkyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF69A24244103BB00246305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EBF69A26244103BB00246305 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EBF69A28244103BB00246305 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EBF69A2B244103BB00246305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBF69A2D244103BE00246305 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBF69A30244103BE00246305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBF69A32244103BE00246305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBF69A42244105E800246305 /* WeatherNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherNetworkService.swift; sourceTree = "<group>"; };
+		EBF69A44244105F000246305 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		EBF69A462441060E00246305 /* CityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		EBF69A4A244107A300246305 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EBF69A4C244107A900246305 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EBF69A5624411CC600246305 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		EBF69A5824411D9900246305 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		EBF69A5E24412F6B00246305 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		EBF69A6024414C8A00246305 /* CityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
+		EBF69A6224414C9400246305 /* CityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBF69A3A244104B900246305 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,14 +77,95 @@
 			isa = PBXGroup;
 			children = (
 				EBF69A24244103BB00246305 /* AppDelegate.swift */,
-				EBF69A26244103BB00246305 /* SceneDelegate.swift */,
-				EBF69A28244103BB00246305 /* ViewController.swift */,
-				EBF69A2A244103BB00246305 /* Main.storyboard */,
+				EBF69A3B2441056E00246305 /* Common */,
+				EBF69A3C2441057200246305 /* UserStory */,
 				EBF69A2D244103BE00246305 /* Assets.xcassets */,
+				EBF69A2A244103BB00246305 /* Main.storyboard */,
 				EBF69A2F244103BE00246305 /* LaunchScreen.storyboard */,
 				EBF69A32244103BE00246305 /* Info.plist */,
 			);
 			path = SkyWeather;
+			sourceTree = "<group>";
+		};
+		EBF69A3B2441056E00246305 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EBF69A40244105B100246305 /* Extensions+Helpers */,
+				EBF69A3F244105AD00246305 /* Service */,
+				EBF69A3E244105A800246305 /* Model */,
+				EBF69A3D244105A200246305 /* UIComponents */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EBF69A3C2441057200246305 /* UserStory */ = {
+			isa = PBXGroup;
+			children = (
+				EBF69A492441062C00246305 /* View */,
+				EBF69A482441062800246305 /* Controller */,
+			);
+			path = UserStory;
+			sourceTree = "<group>";
+		};
+		EBF69A3D244105A200246305 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				EBF69A41244105CB00246305 /* Cells */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		EBF69A3E244105A800246305 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EBF69A44244105F000246305 /* WeatherModel.swift */,
+				EBF69A5624411CC600246305 /* MainModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EBF69A3F244105AD00246305 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EBF69A42244105E800246305 /* WeatherNetworkService.swift */,
+				EBF69A462441060E00246305 /* CityModel.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		EBF69A40244105B100246305 /* Extensions+Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EBF69A5824411D9900246305 /* UIView+Shadow.swift */,
+				EBF69A5E24412F6B00246305 /* AlertHelper.swift */,
+			);
+			path = "Extensions+Helpers";
+			sourceTree = "<group>";
+		};
+		EBF69A41244105CB00246305 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EB95E8B22441DED700EFB887 /* CityListTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EBF69A482441062800246305 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EBF69A4A244107A300246305 /* MainViewController.swift */,
+				EBF69A6024414C8A00246305 /* CityListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EBF69A492441062C00246305 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBF69A4C244107A900246305 /* MainView.swift */,
+				EBF69A6224414C9400246305 /* CityListView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +184,9 @@
 			dependencies = (
 			);
 			name = SkyWeather;
+			packageProductDependencies = (
+				EBF69A39244104B900246305 /* Lottie */,
+			);
 			productName = SkyWeather;
 			productReference = EBF69A21244103BB00246305 /* SkyWeather.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +215,9 @@
 				Base,
 			);
 			mainGroup = EBF69A18244103BB00246305;
+			packageReferences = (
+				EBF69A38244104B900246305 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = EBF69A22244103BB00246305 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +245,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF69A29244103BB00246305 /* ViewController.swift in Sources */,
+				EBF69A5F24412F6B00246305 /* AlertHelper.swift in Sources */,
+				EBF69A472441060E00246305 /* CityModel.swift in Sources */,
+				EBF69A4D244107A900246305 /* MainView.swift in Sources */,
+				EBF69A6324414C9400246305 /* CityListView.swift in Sources */,
 				EBF69A25244103BB00246305 /* AppDelegate.swift in Sources */,
-				EBF69A27244103BB00246305 /* SceneDelegate.swift in Sources */,
+				EBF69A5924411D9900246305 /* UIView+Shadow.swift in Sources */,
+				EBF69A45244105F000246305 /* WeatherModel.swift in Sources */,
+				EBF69A6124414C8A00246305 /* CityListViewController.swift in Sources */,
+				EBF69A43244105E800246305 /* WeatherNetworkService.swift in Sources */,
+				EBF69A5724411CC600246305 /* MainModel.swift in Sources */,
+				EB95E8B32441DED700EFB887 /* CityListTableViewCell.swift in Sources */,
+				EBF69A4B244107A300246305 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +410,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = VladMus.SkyWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = VladMus.SkyWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -338,6 +454,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EBF69A38244104B900246305 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EBF69A39244104B900246305 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBF69A38244104B900246305 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EBF69A19244103BB00246305 /* Project object */;
 }
