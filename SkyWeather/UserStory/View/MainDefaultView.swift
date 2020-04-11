@@ -11,16 +11,10 @@ import UIKit
 class MainDefaultView: UIView {
     
     //MARK: - Private Properties
-        
-    private let descriptionTextLabel: UILabel = {
-       let label = UILabel()
-        label.text = MainModel.defaultDescText
-        return label
-    }()
     
     private let currentLocationButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Turn On location", for: .normal)
+        btn.setTitle("My Location", for: .normal)
         btn.backgroundColor = .systemBlue
         return btn
     }()
@@ -48,19 +42,6 @@ class MainDefaultView: UIView {
     private func setupView() {
         backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "backDefaultImage"))
         [
-            descriptionTextLabel
-        ].forEach({
-            $0.textDropShadow()
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.backgroundColor                           = UIColor.opacityBlack
-            $0.textColor                                 = .white
-            $0.textAlignment                             = .center
-            $0.font                                      = UIFont.customSmallSize
-            $0.textAlignment                             = .center
-            $0.numberOfLines                             = 10
-            addSubview($0)
-        })
-        [
             currentLocationButton,
             newCityButton
         ].forEach({
@@ -77,15 +58,10 @@ class MainDefaultView: UIView {
     
     private func setupConst() {
         let const = [
-            descriptionTextLabel.topAnchor.constraint(equalTo: topAnchor, constant: 70),
-            descriptionTextLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            descriptionTextLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            descriptionTextLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.55),
-            
-            currentLocationButton.leadingAnchor.constraint(equalTo: descriptionTextLabel.leadingAnchor),
-            currentLocationButton.topAnchor.constraint(equalTo: descriptionTextLabel.bottomAnchor, constant: 10),
-            currentLocationButton.heightAnchor.constraint(equalToConstant: 40),
-            currentLocationButton.trailingAnchor.constraint(equalTo: descriptionTextLabel.trailingAnchor),
+            currentLocationButton.topAnchor.constraint(equalTo: topAnchor, constant: 70),
+            currentLocationButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            currentLocationButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            currentLocationButton.heightAnchor.constraint(equalToConstant: 60),
             
             newCityButton.trailingAnchor.constraint(equalTo: currentLocationButton.trailingAnchor, constant: -20),
             newCityButton.topAnchor.constraint(equalTo: currentLocationButton.bottomAnchor, constant: 20),

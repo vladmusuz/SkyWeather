@@ -10,11 +10,27 @@ import Foundation
 
 struct WeatherNetworkService {
     
-    static func getWeatherData(completion: @escaping (Result<Model, Error>) -> Void) {
+    enum WeatherDataGetType {
+        case byCity
+        case byCoordinates
+    }
+    
+    static func getWeatherData(type: WeatherDataGetType, completion: @escaping (Result<Model, Error>) -> Void) {
         
         let city = (MainModel.cityName as NSString).replacingOccurrences(of: " ", with: "%20")
-        let source = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=d32afaac5ea627ea1d2634659bbbc17e"
-        guard let citiesUrl = URL(string: source) else {fatalError()}
+        let apiKey = "d32afaac5ea627ea1d2634659bbbc17e"
+        let citySource = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)"
+        let geoSource = "https://api.openweathermap.org/data/2.5/weather?lat=\(UserCoordinate.lat)&lon=\(UserCoordinate.lon)&appid=\(apiKey)"
+        
+        var url = ""
+        
+        switch type {
+        case .byCity: url = citySource
+        case .byCoordinates: url = geoSource
+            print(UserCoordinate.lat, UserCoordinate.lon)
+        }
+        
+        guard let citiesUrl = URL(string: url) else {fatalError()}
         
         URLSession.shared.dataTask(with: citiesUrl) { (data, response, error) in
             guard let data = data, error == nil else {return}

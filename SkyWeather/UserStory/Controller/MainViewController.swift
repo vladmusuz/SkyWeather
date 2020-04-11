@@ -28,8 +28,8 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
         super.viewDidLoad()
         
         setupView()
-        getUserLocation()
         getCity()
+        getUserLocation()
     }
     
     override func loadView() {
@@ -51,6 +51,11 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
     
     internal func locateButtonPressed() {
         
+        if !CLLocationManager.locationServicesEnabled() {
+            alert(withTitle: "Warning", message: "Location Service is disabled", andStyle: .alert)
+        } else {
+            getLocationWeatherDate()
+        }
     }
     
     func setMainValues() {
@@ -75,10 +80,10 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
     private func setupView() {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
         self.navigationController?.navigationBar.shadowImage   = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor        = .clear
-        self.navigationController?.navigationBar.tintColor     = .white
         
         myView.delegate        = self
         myDefaultView.delegate = self
@@ -88,10 +93,24 @@ class MainViewController: UIViewController, MainViewControllerDelegate {
 //MARK: - CLLocationManagerDelegate
 
 extension MainViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+         print("error:: \(error.localizedDescription)")
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        UserCoordinate.lat = locValue.latitude
+        UserCoordinate.lon = locValue.longitude
+        
+        getLocationWeatherDate()
     }
 }
 
@@ -112,9 +131,41 @@ extension MainViewController {
                         if $0.capital != "" {
                             MainModel.cityArray.append($0.capital)
                             let sortedCityList   = MainModel.cityArray.sorted()
-                            MainModel.cityArray = sortedCityList
+                            MainModel.cityArray  = sortedCityList
                         }
                     })
+                }
+            }
+        }
+    }
+}
+
+//MARK: - Current Location Weather
+
+extension MainViewController {
+    
+    func getLocationWeatherDate() {
+        
+        WeatherNetworkService.getWeatherData(type: .byCoordinates) { (result) in
+            
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error): print("error while fetching location data \(error)")
+                    
+                case .success(let model):
+                    let temp = model.main.temp - 273.15 + 1
+                    
+                    MainModel.temp           = String(format: "%.f", temp)
+                    MainModel.cityName       = model.name
+                    MainModel.isCitySelected = true
+                    
+                    model.weather.forEach({
+                        WeatherState.weatherStateDefine(weatherState: $0.main)
+                        MainModel.descrition = $0.main
+                        
+                    })
+                    
+                    self.setMainValues()
                 }
             }
         }

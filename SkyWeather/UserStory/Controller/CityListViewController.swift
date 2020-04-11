@@ -93,8 +93,6 @@ extension CityViewController: UITableViewDelegate {
             
             navigationController?.popViewController(animated: true)
         }
-        
-        
     }
 }
 
@@ -116,7 +114,7 @@ extension CityViewController: UISearchBarDelegate {
 extension CityViewController {
     
     private func getWeatherData() {
-        WeatherNetworkService.getWeatherData { (result) in
+        WeatherNetworkService.getWeatherData(type: .byCity) { (result) in
             DispatchQueue.main.async {
                 
                 switch result {
@@ -128,25 +126,10 @@ extension CityViewController {
                     MainModel.temp = String(format: "%.f", temp)
                     
                     model.weather.forEach({
-                        
-                        if $0.main == "Clouds" {
-                            MainModel.weatherStateImage = UIImage.MyCityBackImage.clouds
-                            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backCloud)
-                        } else if $0.main == "Clear" {
-                            MainModel.weatherStateImage = UIImage.MyCityBackImage.clear
-                            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backClear)
-                        } else if $0.main == "Rain" {
-                            MainModel.weatherStateImage = UIImage.MyCityBackImage.rain
-                            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backRain)
-                        } else if $0.main == "Snow" {
-                            MainModel.weatherStateImage = UIImage.MyCityBackImage.snow
-                            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backSnow)
-                        } else if $0.main == "Mist" || $0.main == "Haze" {
-                            MainModel.weatherStateImage = UIImage.MyCityBackImage.mist
-                            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backMist)
-                        }
-                        print($0.main)
+                        WeatherState.weatherStateDefine(weatherState: $0.main)
                         MainModel.descrition = $0.main
+                        
+                        print($0.main)
                     })
                 }
             }

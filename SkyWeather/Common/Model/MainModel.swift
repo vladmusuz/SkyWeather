@@ -18,13 +18,16 @@ struct MainModel {
     static var weatherStateImage = UIImage()
     static var mainBackImage     = UIColor(patternImage: UIImage())
     
-    static var defaultDescText = Description.text
-    
     static var searchCityArray  = [String]()
     static var isSearching      = false
     
     static var isLocationEnable = false
     static var isCitySelected   = false
+}
+
+struct UserCoordinate {
+    static var lat = Double()
+    static var lon = Double()
 }
 
 struct Cells {
@@ -35,6 +38,24 @@ struct Capital: Codable {
     var capital: String
 }
 
-struct Description {
-    static let text = "Hi, to be able to track your weather details in your Location, please enable the Location Service in Settings. In other case you can Select any City by clicking 'Select' button"
+struct WeatherState {
+    static func weatherStateDefine(weatherState: String) {
+        
+        if weatherState == "Clouds" {
+            MainModel.weatherStateImage = UIImage.MyCityBackImage.clouds
+            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backCloud)
+        } else if weatherState == "Clear" {
+            MainModel.weatherStateImage = UIImage.MyCityBackImage.clear
+            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backClear)
+        } else if weatherState == "Rain" {
+            MainModel.weatherStateImage = UIImage.MyCityBackImage.rain
+            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backRain)
+        } else if weatherState == "Snow" {
+            MainModel.weatherStateImage = UIImage.MyCityBackImage.snow
+            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backSnow)
+        } else if weatherState == "Mist" || weatherState == "Haze" {
+            MainModel.weatherStateImage = UIImage.MyCityBackImage.mist
+            MainModel.mainBackImage = UIColor(patternImage: UIImage.MyCityBackImage.backMist)
+        }
+    }
 }
