@@ -25,9 +25,9 @@ class CityViewController: UIViewController {
     private func setupView() {
         title = "Select City"
         
-        myView.tableView.delegate   = self
+        myView.tableView.delegate = self
         myView.tableView.dataSource = self
-        myView.searchBar.delegate   = self
+        myView.searchBar.delegate = self
         
         myView.tableView.register(CityListTabelViewCell.self, forCellReuseIdentifier: Cells.cityListCellIdentifier)
     }
@@ -50,11 +50,11 @@ extension CityViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.cityListCellIdentifier, for: indexPath) as! CityListTabelViewCell
         
         if MainModel.isSearching {
-            let city             = MainModel.searchCityArray[indexPath.row]
+            let city = MainModel.searchCityArray[indexPath.row]
             cell.textLabel?.text = city
             
         } else {
-            let city             = MainModel.cityArray[indexPath.row]
+            let city = MainModel.cityArray[indexPath.row]
             cell.textLabel?.text = city
         }
         return cell
@@ -84,9 +84,9 @@ extension CityViewController: UITableViewDelegate {
             alert(withTitle: "Warning", message: "Sorry, this city data is not available", andStyle: .alert)
             
         } else {
-            MainModel.cityName       = selectedCity
-            myView.searchBar.text    = ""
-            MainModel.isSearching    = false
+            MainModel.cityName = selectedCity
+            myView.searchBar.text = ""
+            MainModel.isSearching = false
             MainModel.isCitySelected = true
             
             getWeatherData()
@@ -103,7 +103,7 @@ extension CityViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         MainModel.searchCityArray = MainModel.cityArray.filter({$0.prefix(searchText.count) == searchText})
-        MainModel.isSearching     = true
+        MainModel.isSearching = true
         
         myView.tableView.reloadData()
     }

@@ -80,6 +80,7 @@ class MainView: UIView {
     //MARK: - Methods
     
     private func setupView() {
+        self.addBlurEffect()
         [
             cityNameLabel,
             weatherStateImageView,
@@ -96,8 +97,6 @@ class MainView: UIView {
             tempLabel,
             descriptionTextLabel
         ].forEach({
-            $0.textDropShadow()
-            
             $0.textColor     = .white
             $0.textAlignment = .center
             $0.font          = UIFont.customBigSize
