@@ -49,7 +49,7 @@ class CityListView: UIView {
     
     private func setupConst() {
         let const = [
-            searchBar.topAnchor.constraint(equalTo: self.topAnchor, constant: 70),
+            searchBar.topAnchor.constraint(equalTo: self.topAnchor, constant: 85),
             searchBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             searchBar.heightAnchor.constraint(equalToConstant: 50),
